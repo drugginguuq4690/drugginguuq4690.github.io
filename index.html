@@ -1,0 +1,2991 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>María Chiribao | QA Funcional | Analista Funcional | Testing E2E</title>
+
+    <meta
+        name="description"
+        content="María Chiribao. QA Funcional, Analista Funcional y Testing End-to-End. Validación de procesos, reglas de negocio, testing manual, exploratorio, automation y API Testing."
+    >
+
+    <meta name="author" content="María Chiribao">
+
+    <meta
+        name="keywords"
+        content="QA Funcional, QA Tester, Analista Funcional, Testing E2E, Testing Manual, Testing Exploratorio, QA Automation, API Testing, Python, Pytest, Selenium, Postman, Jira, Zephyr"
+    >
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="theme-color" content="#07110B">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="María Chiribao | QA Funcional & Analista Funcional">
+
+    <meta
+        property="og:description"
+        content="QA Funcional | Analista Funcional | Testing End-to-End | Validación de Procesos & Reglas de Negocio"
+    >
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://www.mindweb.com.ar/">
+
+    <link rel="canonical" href="https://www.mindweb.com.ar/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg-dark: #07110B;
+            --bg-secondary: #091810;
+            --bg-card: #0E1F15;
+
+            --accent: #01C96E;
+            --accent-hover: #00A358;
+
+            --text-primary: #F2F7F4;
+            --text-secondary: #A8B5AE;
+            --text-muted: #718078;
+
+            --border: rgba(1, 201, 110, 0.18);
+
+            --shadow:
+                0 10px 30px rgba(0, 0, 0, 0.35);
+
+            --radius: 14px;
+
+            --max-width: 1180px;
+
+            --transition: 0.25s ease;
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Montserrat", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(1, 201, 110, 0.07),
+                    transparent 35%
+                ),
+                var(--bg-dark);
+
+            color: var(--text-primary);
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        ul {
+            list-style: none;
+        }
+
+
+        ::selection {
+            background: var(--accent);
+            color: #06100A;
+        }
+
+
+        /* =========================================================
+           ACCESSIBILITY
+        ========================================================= */
+
+        .skip-link {
+            position: fixed;
+            top: -100px;
+            left: 20px;
+
+            background: var(--accent);
+            color: #06100A;
+
+            padding: 10px 16px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+
+            z-index: 9999;
+
+            transition: var(--transition);
+        }
+
+
+        .skip-link:focus {
+            top: 20px;
+        }
+
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        .container {
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
+            margin-inline: auto;
+        }
+
+
+        section {
+            padding: 90px 0;
+            scroll-margin-top: 80px;
+        }
+
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+
+        .section-label {
+            display: inline-block;
+
+            color: var(--accent);
+
+            font-size: 0.98rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.14em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-title {
+            font-size: clamp(
+                2rem,
+                5vw,
+                3rem
+            );
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-description {
+            color: var(--text-secondary);
+
+            max-width: 760px;
+
+            font-size: 1rem;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1000;
+
+            background: rgba(7, 17, 11, 0.88);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+
+        .nav {
+            min-height: 70px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+            font-size: 1.4em;
+
+            font-weight: 800;
+
+            letter-spacing: -0.03em;
+        }
+
+
+        .logo span {
+            color: var(--accent);
+        }
+
+
+        .nav-menu {
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .nav-link {
+            color: var(--text-secondary);
+
+            font-size: 0.88rem;
+
+            font-weight: 600;
+
+            transition: var(--transition);
+        }
+
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+
+        .menu-toggle {
+            display: none;
+
+            background: transparent;
+
+            border: 0;
+
+            color: var(--text-primary);
+
+            cursor: pointer;
+
+            font-size: 1.7rem;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding-top: 100px;
+
+            position: relative;
+        }
+
+        /* =========================================================
+           HERO SMOKE / FLAME
+           Humo flameante, elegante y limitado exclusivamente al inicio
+        ========================================================= */
+
+        .hero {
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .hero-smoke {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.94;
+            mix-blend-mode: screen;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                radial-gradient(
+                    ellipse at 50% 55%,
+                    rgba(1, 201, 110, 0.035),
+                    transparent 55%
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(7, 17, 11, 0.10),
+                    transparent 18%,
+                    transparent 82%,
+                    rgba(7, 17, 11, 0.10)
+                ),
+                linear-gradient(
+                    180deg,
+                    rgba(7, 17, 11, 0.08),
+                    transparent 35%,
+                    rgba(7, 17, 11, 0.14)
+                );
+        }
+
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 420px;
+            height: 420px;
+
+            right: -180px;
+            top: 10%;
+
+            border-radius: 50%;
+
+            background: rgba(
+                1,
+                201,
+                110,
+                0.06
+            );
+
+            filter: blur(20px);
+
+            pointer-events: none;
+        }
+
+
+        .hero-content {
+            max-width: 950px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .hero-status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 13px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(
+                1,
+                201,
+                110,
+                0.05
+            );
+
+            border-radius: 50px;
+
+            color: var(--accent);
+
+            font-size: 0.78rem;
+
+            font-weight: 700;
+
+            margin-bottom: 24px;
+        }
+
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+
+            box-shadow:
+                0 0 0 4px
+                rgba(1, 201, 110, 0.12);
+        }
+
+
+        .hero-title {
+            font-size: clamp(
+                3rem,
+                9vw,
+                6.5rem
+            );
+
+            line-height: 0.98;
+
+            letter-spacing: -0.055em;
+
+            margin-bottom: 24px;
+        }
+
+
+        .hero-title .highlight {
+            color: var(--accent);
+        }
+
+
+        .hero-subtitle {
+            font-size: clamp(
+                1rem,
+                2.5vw,
+                1.35rem
+            );
+
+            color: var(--text-secondary);
+
+            max-width: 850px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-subtitle strong {
+            color: var(--text-primary);
+        }
+
+
+        .hero-actions {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            min-height: 48px;
+
+            padding: 12px 20px;
+
+            border-radius: 9px;
+
+            font-size: 0.88rem;
+
+            font-weight: 700;
+
+            transition: var(--transition);
+
+            cursor: pointer;
+        }
+
+
+        .btn-primary {
+            background: var(--accent);
+
+            color: #06100A;
+        }
+
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+
+            transform: translateY(-2px);
+        }
+
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+
+            color: var(--text-primary);
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.02
+            );
+        }
+
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+
+            color: var(--accent);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about {
+            background: var(--bg-secondary);
+
+            border-top: 1px solid
+                rgba(255,255,255,0.02);
+
+            border-bottom: 1px solid
+                rgba(255,255,255,0.02);
+        }
+
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.5fr)
+                minmax(280px, 0.8fr);
+
+            gap: 60px;
+
+            align-items: start;
+        }
+
+
+        .about-text p {
+            color: var(--text-secondary);
+
+            margin-bottom: 18px;
+
+            font-size: 1rem;
+        }
+
+
+        .about-text strong {
+            color: var(--text-primary);
+        }
+
+
+        .highlights {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+
+        .highlight-card {
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 22px;
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .highlight-number {
+            display: block;
+
+            color: var(--accent);
+
+            font-size: 1.8rem;
+
+            font-weight: 800;
+
+            margin-bottom: 5px;
+        }
+
+
+        .highlight-text {
+            color: var(--text-secondary);
+
+            font-size: 0.8rem;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .skill-card {
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 25px;
+
+            transition: var(--transition);
+        }
+
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(1, 201, 110, 0.45);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .skill-card h3 {
+            font-size: 1rem;
+
+            margin-bottom: 18px;
+        }
+
+
+        .badge-list {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        .badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 7px 10px;
+
+            border-radius: 50px;
+
+            background:
+                rgba(
+                    1,
+                    201,
+                    110,
+                    0.07
+                );
+
+            border: 1px solid
+                rgba(
+                    1,
+                    201,
+                    110,
+                    0.17
+                );
+
+            color: var(--text-secondary);
+
+            font-size: 0.72rem;
+
+            font-weight: 600;
+
+            transition: var(--transition);
+        }
+
+
+        .badge:hover {
+            color: var(--accent);
+
+            border-color: var(--accent);
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects {
+            background: var(--bg-secondary);
+        }
+
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+
+        .project-card {
+            position: relative;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 28px;
+
+            min-height: 350px;
+
+            overflow: hidden;
+
+            transition: var(--transition);
+        }
+
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background: var(--accent);
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: var(--transition);
+        }
+
+
+        .project-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(1, 201, 110, 0.4);
+
+            box-shadow: var(--shadow);
+        }
+
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        .project-number {
+            color: var(--accent);
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+
+            letter-spacing: 0.1em;
+
+            margin-bottom: 16px;
+        }
+
+
+        .project-card h3 {
+            font-size: 1.35rem;
+
+            margin-bottom: 12px;
+        }
+
+
+        .project-card p {
+            color: var(--text-secondary);
+
+            font-size: 0.9rem;
+
+            margin-bottom: 20px;
+        }
+
+
+        .project-tech {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: auto;
+
+            margin-bottom: 22px;
+        }
+
+
+        .tech {
+            color: var(--text-muted);
+
+            font-size: 0.68rem;
+
+            padding: 5px 8px;
+
+            border-radius: 6px;
+
+            border: 1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+        }
+
+
+        .project-link {
+            color: var(--accent);
+
+            font-size: 0.8rem;
+
+            font-weight: 700;
+        }
+
+
+        .project-link:hover {
+            color: var(--text-primary);
+        }
+
+
+        /* =========================================================
+           CONTACT
+        ========================================================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(280px, 0.8fr);
+
+            gap: 60px;
+        }
+
+
+        .contact-intro {
+            color: var(--text-secondary);
+
+            max-width: 650px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .contact-items {
+            display: grid;
+
+            gap: 13px;
+        }
+
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 17px;
+
+            background: var(--bg-card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            transition: var(--transition);
+        }
+
+
+        .contact-item:hover {
+            border-color: var(--accent);
+        }
+
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 8px;
+
+            background:
+                rgba(
+                    1,
+                    201,
+                    110,
+                    0.08
+                );
+
+            color: var(--accent);
+
+            font-weight: 800;
+
+            flex-shrink: 0;
+        }
+
+
+        .contact-item small {
+            display: block;
+
+            color: var(--text-muted);
+
+            font-size: 0.68rem;
+
+            margin-bottom: 2px;
+        }
+
+
+        .contact-item span {
+            color: var(--text-primary);
+
+            font-size: 0.82rem;
+
+            font-weight: 600;
+
+            word-break: break-word;
+        }
+
+
+        .availability-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(
+                        1,
+                        201,
+                        110,
+                        0.09
+                    ),
+                    var(--bg-card)
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            padding: 32px;
+
+            align-self: start;
+        }
+
+
+        .availability-card h3 {
+            margin-bottom: 12px;
+
+            font-size: 1.2rem;
+        }
+
+
+        .availability-card p {
+            color: var(--text-secondary);
+
+            font-size: 0.88rem;
+
+            margin-bottom: 22px;
+        }
+
+
+        .availability {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--accent);
+
+            font-size: 0.8rem;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            padding: 30px 0;
+
+            border-top: 1px solid var(--border);
+
+            background: #050C08;
+        }
+
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+        }
+
+
+        .footer p {
+            color: var(--text-muted);
+
+            font-size: 0.72rem;
+        }
+
+
+        .footer-highlight {
+            color: var(--accent);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .about-grid {
+                gap: 35px;
+            }
+
+
+            .contact-grid {
+                gap: 30px;
+            }
+
+        }
+
+
+        @media (max-width: 720px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+
+            .container {
+                width: min(
+                    calc(100% - 28px),
+                    var(--max-width)
+                );
+            }
+
+
+            .menu-toggle {
+                display: block;
+            }
+
+
+            .nav-menu {
+                position: absolute;
+
+                top: 70px;
+
+                left: 0;
+                right: 0;
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 0;
+
+                padding: 10px 14px 16px;
+
+                background:
+                    rgba(
+                        7,
+                        17,
+                        11,
+                        0.98
+                    );
+
+                border-bottom:
+                    1px solid var(--border);
+            }
+
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+
+            .nav-link {
+                display: block;
+
+                padding: 13px 8px;
+            }
+
+
+            .hero {
+                min-height: auto;
+
+                padding-top: 140px;
+
+                padding-bottom: 80px;
+            }
+
+
+            .hero-title {
+                font-size: clamp(
+                    2.8rem,
+                    15vw,
+                    4.8rem
+                );
+            }
+
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+
+            .hero-actions {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+
+            .btn {
+                width: 100%;
+            }
+
+
+            .highlights {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .project-card {
+                min-height: 0;
+            }
+
+
+            .footer-content {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+
+            .hero-status {
+                font-size: 0.7rem;
+            }
+
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .hero-smoke {
+                display: none;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Accessibility -->
+    <a
+        class="skip-link"
+        href="#main-content"
+    >
+        Saltar al contenido principal
+    </a>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================= -->
+
+    <header class="header">
+
+        <div class="container">
+
+            <nav
+                class="nav"
+                aria-label="Navegación principal"
+            >
+
+                <a
+                    href="#inicio"
+                    class="logo"
+                    aria-label="Inicio - María Chiribao"
+                >
+                    Chiribao<span>.QA</span>
+                </a>
+
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navMenu"
+                >
+                    ☰
+                </button>
+
+
+                <ul
+                    class="nav-menu"
+                    id="navMenu"
+                >
+
+                    <li>
+                        <a
+                            class="nav-link"
+                            href="#sobre-mi"
+                        >
+                            Sobre mí
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a
+                            class="nav-link"
+                            href="#skills"
+                        >
+                            Skills
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a
+                            class="nav-link"
+                            href="#proyectos"
+                        >
+                            Proyectos
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a
+                            class="nav-link"
+                            href="#contacto"
+                        >
+                            Contacto
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main id="main-content">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+            aria-labelledby="hero-title"
+        >
+            <canvas
+                id="heroSmoke"
+                class="hero-smoke"
+                aria-hidden="true"
+            ></canvas>
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-status">
+
+                        <span
+                            class="status-dot"
+                            aria-hidden="true"
+                        ></span>
+
+                        Disponibilidad inmediata
+
+                    </div>
+
+
+                    <h1
+                        class="hero-title"
+                        id="hero-title"
+                    >
+
+                        María
+                        <span class="highlight">
+                            Chiribao
+                        </span>
+
+                    </h1>
+
+
+                    <p class="hero-subtitle">
+
+                        <strong>
+                            QA Manual & Exploratorio
+                        </strong>
+
+                        ·
+
+                        <strong>
+                            Analista Funcional
+                        </strong>
+
+                        ·
+
+                        <strong>
+                            Testing End-to-End
+                        </strong>
+
+                        <br>
+
+                        Validación de Procesos & Reglas de Negocio
+
+                        ·
+
+                        QA Automation & API Testing
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#contacto"
+                            class="btn btn-primary"
+                        >
+                            Contactarme
+                            <span aria-hidden="true">
+                                →
+                            </span>
+                        </a>
+
+
+                        <a
+                            href="CV-Chiribao-2026.pdf"
+                            class="btn btn-secondary"
+                            download
+                        >
+                            Descargar CV
+                            <span aria-hidden="true">
+                                ↓
+                            </span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SOBRE MÍ
+        ====================================================== -->
+
+        <section
+            class="about"
+            id="sobre-mi"
+            aria-labelledby="about-title"
+        >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Sobre mí
+                    </span>
+
+                    <h2
+                        class="section-title"
+                        id="about-title"
+                    >
+                        Calidad desde una mirada funcional
+                    </h2>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-text">
+
+                        <p>
+                            Soy
+                            <strong>
+                                QA Tester Funcional y Analista Funcional
+                            </strong>,
+                            con foco en testing manual, exploratorio y
+                            End-to-End, validación de procesos y reglas de
+                            negocio.
+                        </p>
+
+
+                        <p>
+                            Mi experiencia profesional en gestión
+                            administrativa y procesos críticos me permite
+                            analizar los sistemas no solamente desde el
+                            comportamiento técnico, sino también desde la
+                            lógica del negocio, los datos y el recorrido
+                            completo del usuario.
+                        </p>
+
+
+                        <p>
+                            Trabajo en
+                            <strong>
+                                análisis de requerimientos,
+                                criterios de aceptación,
+                                diseño y ejecución de casos de prueba,
+                                validación de datos,
+                                gestión de defectos y documentación
+                            </strong>.
+                        </p>
+
+
+                        <p>
+                            Actualmente continúo desarrollándome en
+                            <strong>
+                                QA Automation y API Testing
+                            </strong>,
+                            trabajando con Python, Pytest, Selenium,
+                            Requests, Postman, JSON y Swagger.
+                        </p>
+
+
+                        <p>
+                            También incorporo herramientas de IA como apoyo
+                            para estructurar, revisar y mejorar soluciones,
+                            manteniendo siempre la
+                            <strong>
+                                validación QA y el criterio funcional
+                            </strong>
+                            sobre el resultado.
+                        </p>
+
+                    </div>
+
+
+                    <div class="highlights">
+
+                        <article class="highlight-card">
+
+                            <span class="highlight-number">
+                                20+
+                            </span>
+
+                            <span class="highlight-text">
+                                años de experiencia en gestión de procesos
+                                administrativos y operativos
+                            </span>
+
+                        </article>
+
+
+                        <article class="highlight-card">
+
+                            <span class="highlight-number">
+                                E2E
+                            </span>
+
+                            <span class="highlight-text">
+                                Visión integral del recorrido y comportamiento
+                                de los procesos
+                            </span>
+
+                        </article>
+
+
+                        <article class="highlight-card">
+
+                            <span class="highlight-number">
+                                QA
+                            </span>
+
+                            <span class="highlight-text">
+                                Validación funcional, exploratoria y de
+                                reglas de negocio
+                            </span>
+
+                        </article>
+
+
+                        <article class="highlight-card">
+
+                            <span class="highlight-number">
+                                API
+                            </span>
+
+                            <span class="highlight-text">
+                                Formación y práctica en API Testing,
+                                Postman, Requests y Pytest
+                            </span>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
+
+        <section
+            id="skills"
+            aria-labelledby="skills-title"
+        >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Skills
+                    </span>
+
+                    <h2
+                        class="section-title"
+                        id="skills-title"
+                    >
+                        Herramientas y conocimientos
+                    </h2>
+
+                    <p class="section-description">
+                        Tecnologías, herramientas y prácticas que utilizo
+                        en testing, análisis funcional, automatización,
+                        validación de datos y desarrollo web.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <!-- QA -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            QA & Testing
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                Testing Funcional
+                            </span>
+
+                            <span class="badge">
+                                Testing Exploratorio
+                            </span>
+
+                            <span class="badge">
+                                Testing E2E
+                            </span>
+
+                            <span class="badge">
+                                Regression Testing
+                            </span>
+
+                            <span class="badge">
+                                Casos de Prueba
+                            </span>
+
+                            <span class="badge">
+                                Criterios de Aceptación
+                            </span>
+
+                            <span class="badge">
+                                Reglas de Negocio
+                            </span>
+
+                            <span class="badge">
+                                Validación de Datos
+                            </span>
+
+                            <span class="badge">
+                                Gestión de Defectos
+                            </span>
+
+                            <span class="badge">
+                                Cross-Device Testing
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Automation -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Automation & API
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                Python
+                            </span>
+
+                            <span class="badge">
+                                Pytest
+                            </span>
+
+                            <span class="badge">
+                                Selenium WebDriver
+                            </span>
+
+                            <span class="badge">
+                                Page Object Model
+                            </span>
+
+                            <span class="badge">
+                                Requests
+                            </span>
+
+                            <span class="badge">
+                                Postman
+                            </span>
+
+                            <span class="badge">
+                                API Testing
+                            </span>
+
+                            <span class="badge">
+                                JSON
+                            </span>
+
+                            <span class="badge">
+                                Swagger
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Tools -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            QA Tools
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                Jira
+                            </span>
+
+                            <span class="badge">
+                                Zephyr
+                            </span>
+
+                            <span class="badge">
+                                GitHub
+                            </span>
+
+                            <span class="badge">
+                                pytest-html
+                            </span>
+
+                            <span class="badge">
+                                Excel
+                            </span>
+
+                            <span class="badge">
+                                OpenPyXL
+                            </span>
+
+                            <span class="badge">
+                                Pandas
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Web -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Desarrollo Web
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                HTML
+                            </span>
+
+                            <span class="badge">
+                                CSS
+                            </span>
+
+                            <span class="badge">
+                                JavaScript
+                            </span>
+
+                            <span class="badge">
+                                React
+                            </span>
+
+                            <span class="badge">
+                                TypeScript
+                            </span>
+
+                            <span class="badge">
+                                Vite
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Database -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Datos
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                SQL
+                            </span>
+
+                            <span class="badge">
+                                MySQL
+                            </span>
+
+                            <span class="badge">
+                                Validación de Datos
+                            </span>
+
+                            <span class="badge">
+                                Consistencia de Información
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Functional -->
+
+                    <article class="skill-card">
+
+                        <h3>
+                            Análisis & Procesos
+                        </h3>
+
+                        <div class="badge-list">
+
+                            <span class="badge">
+                                Análisis Funcional
+                            </span>
+
+                            <span class="badge">
+                                Documentación Funcional
+                            </span>
+
+                            <span class="badge">
+                                Gestión de Procesos
+                            </span>
+
+                            <span class="badge">
+                                Mejora Continua
+                            </span>
+
+                            <span class="badge">
+                                Soporte Funcional
+                            </span>
+
+                            <span class="badge">
+                                Transformación Digital
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROYECTOS
+        ====================================================== -->
+
+        <section
+            class="projects"
+            id="proyectos"
+            aria-labelledby="projects-title"
+        >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Proyectos
+                    </span>
+
+                    <h2
+                        class="section-title"
+                        id="projects-title"
+                    >
+                        Trabajo práctico
+                    </h2>
+
+                    <p class="section-description">
+                        Proyectos de QA, testing End-to-End, automatización,
+                        API Testing y validación funcional.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 01 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROYECTO 01
+                        </span>
+
+                        <h3>
+                            Proyecto Web QA End-to-End
+                        </h3>
+
+                        <p>
+                            Proyecto orientado al análisis funcional y
+                            validación integral de una aplicación web.
+                            Incluye análisis de requerimientos, criterios
+                            de aceptación, casos de prueba, testing
+                            exploratorio, pruebas E2E, evidencia,
+                            seguimiento de defectos y soporte al proceso
+                            de release.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech">
+                                QA Funcional
+                            </span>
+
+                            <span class="tech">
+                                E2E
+                            </span>
+
+                            <span class="tech">
+                                Jira
+                            </span>
+
+                            <span class="tech">
+                                Zephyr
+                            </span>
+
+                            <span class="tech">
+                                Exploratory Testing
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="project-link"
+                            href="https://qa-e2e-tech.netlify.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver proyecto QA End-to-End"
+                        >
+                            Ver proyecto →
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 02 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROYECTO 02
+                        </span>
+
+                        <h3>
+                            SauceDemo Automation
+                        </h3>
+
+                        <p>
+                            Práctica de automatización web utilizando
+                            Python, Pytest y Selenium WebDriver.
+                            Implementación de Page Object Model,
+                            parametrización y organización de datos de
+                            prueba para validar distintos escenarios del
+                            flujo de compra.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech">
+                                Python
+                            </span>
+
+                            <span class="tech">
+                                Pytest
+                            </span>
+
+                            <span class="tech">
+                                Selenium
+                            </span>
+
+                            <span class="tech">
+                                POM
+                            </span>
+
+                            <span class="tech">
+                                GitHub
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="project-link"
+                            href="https://github.com/mariachiribao"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver proyectos de automatización en GitHub"
+                        >
+                            Ver en GitHub →
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 03 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROYECTO 03
+                        </span>
+
+                        <h3>
+                            Mapa Interactivo Accesible
+                        </h3>
+
+                        <p>
+                            Proyecto colaborativo para la creación de un
+                            mapa digital orientado a navegación y
+                            accesibilidad. Participación desde QA en la
+                            validación de flujos funcionales,
+                            comportamiento, navegación, UX,
+                            funcionalidades e inconsistencias de la
+                            solución final.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech">
+                                React
+                            </span>
+
+                            <span class="tech">
+                                TypeScript
+                            </span>
+
+                            <span class="tech">
+                                Vite
+                            </span>
+
+                            <span class="tech">
+                                Leaflet
+                            </span>
+
+                            <span class="tech">
+                                Spring Boot
+                            </span>
+
+                            <span class="tech">
+                                MySQL
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="project-link"
+                            href="https://mapear-cfp-7.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver mapa interactivo accesible"
+                        >
+                            Ver proyecto →
+                        </a>
+
+                    </article>
+
+
+                    <!-- PROJECT 04 -->
+
+                    <article class="project-card">
+
+                        <span class="project-number">
+                            PROYECTO 04
+                        </span>
+
+                        <h3>
+                            API Testing
+                        </h3>
+
+                        <p>
+                            Prácticas de validación de APIs mediante
+                            Postman y Python, utilizando Requests,
+                            Pytest, JSON y Swagger. Validación de
+                            respuestas, datos, comportamiento esperado y
+                            escenarios funcionales.
+                        </p>
+
+
+                        <div class="project-tech">
+
+                            <span class="tech">
+                                Postman
+                            </span>
+
+                            <span class="tech">
+                                Python
+                            </span>
+
+                            <span class="tech">
+                                Requests
+                            </span>
+
+                            <span class="tech">
+                                Pytest
+                            </span>
+
+                            <span class="tech">
+                                JSON
+                            </span>
+
+                            <span class="tech">
+                                Swagger
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            class="project-link"
+                            href="https://github.com/mariachiribao"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Ver proyectos de API Testing en GitHub"
+                        >
+                            Ver en GitHub →
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACTO
+        ====================================================== -->
+
+        <section
+            id="contacto"
+            aria-labelledby="contact-title"
+        >
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Contacto
+                    </span>
+
+                    <h2
+                        class="section-title"
+                        id="contact-title"
+                    >
+                        Hablemos
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div>
+
+                        <p class="contact-intro">
+                            Estoy abierta a nuevas oportunidades
+                            profesionales relacionadas con QA
+                            Funcional, Análisis Funcional, Testing
+                            End-to-End, Testing Manual y Exploratorio,
+                            así como posiciones donde pueda continuar
+                            desarrollándome en Automation y API Testing.
+                        </p>
+
+
+                        <div class="contact-items">
+
+                            <!-- EMAIL -->
+
+                            <a
+                                class="contact-item"
+                                href="mailto:chiribaomary@gmail.com"
+                            >
+
+                                <span
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    @
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        Email
+                                    </small>
+
+                                    <span>
+                                        chiribaomary@gmail.com
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <!-- LINKEDIN -->
+
+                            <a
+                                class="contact-item"
+                                href="https://www.linkedin.com/in/maria-chiribao/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+
+                                <span
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    in
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        LinkedIn
+                                    </small>
+
+                                    <span>
+                                        linkedin.com/in/maria-chiribao
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <!-- GITHUB -->
+
+                            <a
+                                class="contact-item"
+                                href="https://github.com/mariachiribao"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+
+                                <span
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    &lt;/&gt;
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        GitHub
+                                    </small>
+
+                                    <span>
+                                        github.com/mariachiribao
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <!-- WEB -->
+
+                            <a
+                                class="contact-item"
+                                href="https://www.mindweb.com.ar/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+
+                                <span
+                                    class="contact-icon"
+                                    aria-hidden="true"
+                                >
+                                    ◉
+                                </span>
+
+                                <div>
+
+                                    <small>
+                                        Portfolio
+                                    </small>
+
+                                    <span>
+                                        www.mindweb.com.ar
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <aside class="availability-card">
+
+                        <h3>
+                            Disponibilidad inmediata
+                        </h3>
+
+                        <p>
+                            Actualmente disponible para nuevas
+                            oportunidades laborales y proyectos
+                            vinculados con QA, análisis funcional,
+                            testing y validación de soluciones digitales.
+                        </p>
+
+
+                        <div class="availability">
+
+                            <span
+                                class="status-dot"
+                                aria-hidden="true"
+                            ></span>
+
+                            Disponible para nuevos desafíos
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <p>
+                    © 2026 María Chiribao
+                    ·
+                    <span class="footer-highlight">
+                        QA Tester Funcional
+                    </span>
+                </p>
+
+
+                <p>
+                    Diseñado con HTML, CSS y JavaScript puro.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const menuToggle =
+                    document.getElementById(
+                        "menuToggle"
+                    );
+
+                const navMenu =
+                    document.getElementById(
+                        "navMenu"
+                    );
+
+
+                /* =================================================
+                   HERO SMOKE / FLAME
+                   Movimiento más visible, orgánico y flameante.
+                   Se ejecuta exclusivamente dentro de #inicio.
+                ================================================= */
+
+                const smokeCanvas =
+                    document.getElementById("heroSmoke");
+
+                if (smokeCanvas) {
+
+                    const smokeCtx =
+                        smokeCanvas.getContext("2d", {
+                            alpha: true
+                        });
+
+                    let smokeWidth = 0;
+                    let smokeHeight = 0;
+                    let smokeTime = 0;
+                    let smokeFrame = null;
+
+                    const ribbons = [];
+                    const ribbonCount = 32;
+
+                    function resizeSmoke() {
+
+                        const hero =
+                            smokeCanvas.closest(".hero");
+
+                        if (!hero) return;
+
+                        const rect =
+                            hero.getBoundingClientRect();
+
+                        const dpr =
+                            Math.min(window.devicePixelRatio || 1, 1.35);
+
+                        smokeWidth = rect.width;
+                        smokeHeight = rect.height;
+
+                        smokeCanvas.width =
+                            Math.floor(smokeWidth * dpr);
+
+                        smokeCanvas.height =
+                            Math.floor(smokeHeight * dpr);
+
+                        smokeCanvas.style.width =
+                            smokeWidth + "px";
+
+                        smokeCanvas.style.height =
+                            smokeHeight + "px";
+
+                        smokeCtx.setTransform(
+                            dpr,
+                            0,
+                            0,
+                            dpr,
+                            0,
+                            0
+                        );
+                    }
+
+                    function createRibbon(index) {
+
+                        const spread =
+                            smokeWidth / Math.max(1, ribbonCount - 1);
+
+                        return {
+                            x: index * spread + (Math.random() - 0.5) * spread * 1.8,
+
+                            width:
+                                9 +
+                                Math.random() * 31,
+
+                            amp1:
+                                48 +
+                                Math.random() * 88,
+
+                            amp2:
+                                24 +
+                                Math.random() * 58,
+
+                            amp3:
+                                10 +
+                                Math.random() * 34,
+
+                            freq1:
+                                0.0032 +
+                                Math.random() * 0.0048,
+
+                            freq2:
+                                0.006 +
+                                Math.random() * 0.006,
+
+                            freq3:
+                                0.012 +
+                                Math.random() * 0.010,
+
+                            speed1:
+                                0.010 +
+                                Math.random() * 0.009,
+
+                            speed2:
+                                0.017 +
+                                Math.random() * 0.015,
+
+                            speed3:
+                                0.028 +
+                                Math.random() * 0.025,
+
+                            phase1:
+                                Math.random() * Math.PI * 2,
+
+                            phase2:
+                                Math.random() * Math.PI * 2,
+
+                            phase3:
+                                Math.random() * Math.PI * 2,
+
+                            opacity:
+                                0.006 +
+                                Math.random() * 0.012,
+
+                            flame:
+                                0.8 +
+                                Math.random() * 1.5,
+
+                            flamePhase:
+                                Math.random() * Math.PI * 2,
+
+                            sway:
+                                0.6 +
+                                Math.random() * 1.1
+                        };
+                    }
+
+                    function rebuildRibbons() {
+
+                        ribbons.length = 0;
+
+                        for (
+                            let i = 0;
+                            i < ribbonCount;
+                            i++
+                        ) {
+                            ribbons.push(
+                                createRibbon(i)
+                            );
+                        }
+                    }
+
+                    function drawSmokeRibbon(r) {
+
+                        smokeCtx.beginPath();
+
+                        let firstPoint = true;
+
+                        for (
+                            let y = -150;
+                            y <= smokeHeight + 150;
+                            y += 3
+                        ) {
+
+                            const normalized =
+                                Math.max(
+                                    0,
+                                    Math.min(
+                                        1,
+                                        (y + 150) /
+                                        (smokeHeight + 300)
+                                    )
+                                );
+
+                            const upperFlame =
+                                Math.pow(normalized, 1.35);
+
+                            const wave1 =
+                                Math.sin(
+                                    y * r.freq1 +
+                                    smokeTime * r.speed1 +
+                                    r.phase1
+                                ) *
+                                r.amp1;
+
+                            const wave2 =
+                                Math.sin(
+                                    y * r.freq2 -
+                                    smokeTime * r.speed2 +
+                                    r.phase2
+                                ) *
+                                r.amp2;
+
+                            const wave3 =
+                                Math.sin(
+                                    y * r.freq3 +
+                                    smokeTime * r.speed3 +
+                                    r.phase3
+                                ) *
+                                r.amp3;
+
+                            const flameWave =
+                                Math.sin(
+                                    y * 0.0065 +
+                                    smokeTime * 0.040 * r.flame +
+                                    r.flamePhase
+                                ) *
+                                (16 + upperFlame * 34);
+
+                            const flameTip =
+                                Math.sin(
+                                    y * 0.014 -
+                                    smokeTime * 0.060 * r.flame +
+                                    r.phase1
+                                ) *
+                                (8 + upperFlame * 22);
+
+                            const flutter =
+                                Math.sin(
+                                    y * 0.022 +
+                                    smokeTime * 0.082 * r.sway +
+                                    r.phase2
+                                ) *
+                                (4 + upperFlame * 12);
+
+                            const globalSway =
+                                Math.sin(
+                                    smokeTime * 0.006 * r.sway +
+                                    r.flamePhase
+                                ) *
+                                28;
+
+                            const x =
+                                r.x +
+                                wave1 +
+                                wave2 +
+                                wave3 +
+                                flameWave +
+                                flameTip +
+                                flutter +
+                                globalSway;
+
+                            if (firstPoint) {
+
+                                smokeCtx.moveTo(x, y);
+                                firstPoint = false;
+
+                            } else {
+
+                                smokeCtx.lineTo(x, y);
+                            }
+                        }
+
+                        smokeCtx.lineWidth = r.width;
+
+                        smokeCtx.strokeStyle =
+                            `rgba(1, 201, 110, ${r.opacity})`;
+
+                        smokeCtx.shadowBlur = 18;
+
+                        smokeCtx.shadowColor =
+                            "rgba(1, 201, 110, 0.12)";
+
+                        smokeCtx.stroke();
+                    }
+
+                    function animateSmoke() {
+
+                        smokeCtx.clearRect(
+                            0,
+                            0,
+                            smokeWidth,
+                            smokeHeight
+                        );
+
+                        smokeCtx.save();
+
+                        smokeCtx.filter =
+                            "blur(6px)";
+
+                        ribbons.forEach(
+                            drawSmokeRibbon
+                        );
+
+                        smokeCtx.restore();
+
+                        smokeTime += 2.25;
+
+                        smokeFrame =
+                            requestAnimationFrame(
+                                animateSmoke
+                            );
+                    }
+
+                    function startSmoke() {
+
+                        if (
+                            window.matchMedia(
+                                "(prefers-reduced-motion: reduce)"
+                            ).matches
+                        ) {
+                            return;
+                        }
+
+                        resizeSmoke();
+                        rebuildRibbons();
+
+                        if (smokeFrame) {
+                            cancelAnimationFrame(
+                                smokeFrame
+                            );
+                        }
+
+                        animateSmoke();
+                    }
+
+                    window.addEventListener(
+                        "resize",
+                        () => {
+                            resizeSmoke();
+                            rebuildRibbons();
+                        }
+                    );
+
+                    startSmoke();
+                }
+
+                /* =================================================
+                   MOBILE MENU
+                ================================================= */
+
+                menuToggle.addEventListener(
+                    "click",
+                    () => {
+
+                        const isOpen =
+                            navMenu.classList.toggle(
+                                "active"
+                            );
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            isOpen
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            isOpen
+                                ? "Cerrar menú"
+                                : "Abrir menú"
+                        );
+
+                    }
+                );
+
+
+                /* =================================================
+                   CLOSE MENU WHEN CLICKING A LINK
+                ================================================= */
+
+                const navLinks =
+                    document.querySelectorAll(
+                        ".nav-link"
+                    );
+
+
+                navLinks.forEach(
+                    (link) => {
+
+                        link.addEventListener(
+                            "click",
+                            () => {
+
+                                navMenu.classList.remove(
+                                    "active"
+                                );
+
+                                menuToggle.setAttribute(
+                                    "aria-expanded",
+                                    "false"
+                                );
+
+                                menuToggle.setAttribute(
+                                    "aria-label",
+                                    "Abrir menú"
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+                /* =================================================
+                   ESCAPE CLOSES MENU
+                ================================================= */
+
+                document.addEventListener(
+                    "keydown",
+                    (event) => {
+
+                        if (
+                            event.key === "Escape" &&
+                            navMenu.classList.contains(
+                                "active"
+                            )
+                        ) {
+
+                            navMenu.classList.remove(
+                                "active"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-label",
+                                "Abrir menú"
+                            );
+
+                            menuToggle.focus();
+
+                        }
+
+                    }
+                );
+
+
+                /* =================================================
+                   CLOSE MOBILE MENU WHEN RESIZING
+                ================================================= */
+
+                window.addEventListener(
+                    "resize",
+                    () => {
+
+                        if (
+                            window.innerWidth > 720
+                        ) {
+
+                            navMenu.classList.remove(
+                                "active"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-label",
+                                "Abrir menú"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
+```
